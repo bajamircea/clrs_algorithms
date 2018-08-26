@@ -13,13 +13,9 @@ namespace
     for (std::size_t j = 1; j < n; ++j) {
       int key = f[j];
       std::size_t i = j;
-      for (; i > 0; --i) {
-        if (key < f[i - 1]) {
-          f[i] = f[i - 1];
-        }
-        else {
-          break;
-        }
+      while ((i > 0) && (key < f[i - 1])) {
+        f[i] = f[i - 1];
+        --i;
       }
       f[i] = key;
     }
